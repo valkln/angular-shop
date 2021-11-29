@@ -1,1 +1,41 @@
-<p>add-page works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+	<h2>Add Product</h2>
+	<div>
+		<mat-form-field class="full-width" appearance="fill">
+			<mat-label>Type</mat-label>
+			<mat-select formControlName='type'>
+				<mat-option value="phone">Phone</mat-option>
+				<mat-option value="tablet">Tablet</mat-option>
+				<mat-option value="laptop">Laptop</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div>
+		<mat-form-field class="full-width" appearance="fill">
+			<mat-label>Product Name</mat-label>
+			<input formControlName="title" matInput>
+			<mat-error *ngIf="form.get('title').touched && form.get('title').invalid ">
+				<span *ngIf="form.get('title').errors['required']">This field is required</span>
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div style="margin-bottom: 15px;">
+		<label>Photo</label>
+		<quill-editor formControlName="photo"></quill-editor>
+	</div>
+	<div style="margin-bottom: 15px;">
+		<label>Info</label>
+		<quill-editor formControlName="info"></quill-editor>
+	</div>
+	<div>
+		<mat-form-field class="full-width" appearance="fill">
+			<mat-label>Price</mat-label>
+			<input formControlName="price" matInput>
+			<mat-error *ngIf="form.get('price').touched && form.get('price').invalid ">
+				<span *ngIf="form.get('price').errors['required']">This field is required</span>
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<button type="submit" mat-raised-button color="primary" [disabled]="form.invalid || isSubmitting">Add
+		Product</button>
+</form>
