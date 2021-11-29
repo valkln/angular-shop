@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+mat-toolbar {
+	.spacer {
+		flex: 1 1 auto;
+	}
+	span {
+		&.active {
+			color: #ccc;
+			a {
+				cursor: default;
+			}
+		}
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+		margin: 0 1rem;
+	}
+}
+.container {
+	max-width: 80%;
+	margin: 10px auto;
+}

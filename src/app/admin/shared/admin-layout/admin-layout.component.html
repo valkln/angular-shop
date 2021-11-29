@@ -1,0 +1,13 @@
+<mat-toolbar>
+	<h2>
+		<a routerLink="/">Angular Shop</a>
+	</h2>
+	<span class="spacer"></span>
+	<span routerLinkActive="active"><a [routerLink]="['/admin/dashboard']">Dashboard</a></span>
+	<span routerLinkActive="active"><a [routerLink]="['/admin/add']">Add Product</a></span>
+	<span routerLinkActive="active"><a [routerLink]="['/admin/orders']">Orders</a></span>
+	<span><a [routerLink]="['/admin/dashboard']">Logout</a></span>
+</mat-toolbar>
+<div class="container">
+	<router-outlet></router-outlet>
+</div>

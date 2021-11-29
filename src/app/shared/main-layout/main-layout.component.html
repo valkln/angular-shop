@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+	<h3>Angular Shop</h3>
+	<span class="spacer"></span>
+	<span routerLinkActive="active">
+		<a href="#">Phones</a>
+	</span>
+	<span routerLinkActive="active">
+		<a href="#">Laptops</a>
+	</span>
+	<span routerLinkActive="active">
+		<a [routerLink]="['/cart']">Cart</a>
+	</span>
+</mat-toolbar>
+<div class="container">
+	<router-outlet></router-outlet>
+</div>
