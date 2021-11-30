@@ -15,11 +15,13 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthGuard } from '../shared/auth.guard';
 import { QuillModule } from 'ngx-quill';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
 	imports: [
 		QuillModule.forRoot(),
 		MatInputModule,
+		MatTableModule,
 		MatSelectModule,
 		MatCardModule,
 		MatToolbarModule,

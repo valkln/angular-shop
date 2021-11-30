@@ -1,1 +1,17 @@
-<p>product-page works!</p>
+<div *ngIf="product$ | async as product">
+	<div>
+		<button mat-raised-button color="accent" routerLink="/">Back</button>
+	</div>
+	<mat-divider></mat-divider>
+	<div class="content">
+		<div class="column">
+			<quill-view-html [content]="product.photo"></quill-view-html>
+			<h2>{{product.title}}</h2>
+			<h3>Price: {{product.price}}</h3>
+			<button mat-raised-button color="primary">Add to cart</button>
+		</div>
+		<div class="column">
+			<quill-view-html [content]="product.info"></quill-view-html>
+		</div>
+	</div>
+</div>

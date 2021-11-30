@@ -13,7 +13,7 @@
 	<div>
 		<mat-form-field class="full-width" appearance="fill">
 			<mat-label>Password</mat-label>
-			<input formControlName="password" matInput>
+			<input formControlName="password" type="password" matInput>
 			<mat-error *ngIf="form.get('password').touched && form.get('password').invalid ">
 				<span *ngIf="form.get('password').errors['minlength']">Minimal lenght is 6 symbols</span>
 				<span *ngIf="form.get('password').errors['required']">This field is required</span>

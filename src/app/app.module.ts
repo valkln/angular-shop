@@ -10,6 +10,11 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ProductComponent } from './main-page/product/product.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,19 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     MainLayoutComponent,
     MainPageComponent,
     ProductPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    MatButtonModule,
+    QuillModule,
+    MatDividerModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, multi: true, useClass: AuthInterceptor }],
   bootstrap: [AppComponent]

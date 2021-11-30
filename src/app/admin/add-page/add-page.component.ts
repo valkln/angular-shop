@@ -27,10 +27,10 @@ export class AddPageComponent implements OnInit {
   submit() {
     if (this.form.invalid) return
     this.isSubmitting = true
-    this.productService.create(this.form.value).subscribe(() => {
+    this.productService.createItem(this.form.value).subscribe(() => {
       this.form.reset()
       this.isSubmitting = false
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/admin', 'dashboard'])
     })
   }
 }

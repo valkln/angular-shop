@@ -1,0 +1,12 @@
+<mat-card>
+	<mat-card-title>{{product.title}}</mat-card-title>
+	<mat-card-content>
+		<quill-view-html [content]="product.photo"></quill-view-html>
+		<h4>Price: {{product.price}}</h4>
+	</mat-card-content>
+	<mat-divider inset></mat-divider>
+	<mat-card-actions>
+		<button mat-raised-button color="primary" [routerLink]="['/product', product.id]">Open</button>
+		<button mat-raised-button color="accent" [routerLink]="['/cart']">Add to cart</button>
+	</mat-card-actions>
+</mat-card>

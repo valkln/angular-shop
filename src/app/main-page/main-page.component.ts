@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../shared/interfaces';
+import { ProductService } from './../shared/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  products$: Observable<IProduct[]>
+  constructor(
+    private productService: ProductService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.products$ = this.productService.getList()
   }
-
 }
