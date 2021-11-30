@@ -22,5 +22,7 @@ export class ProductPageComponent implements OnInit {
         return this.productService.getItem(params['id'])
       }))
   }
-
+  addToCart(product) {
+    this.productService.addToCart(product)
+  }
 }

@@ -1,15 +1,9 @@
 <mat-toolbar color="primary">
 	<h3>Angular Shop</h3>
 	<span class="spacer"></span>
-	<span routerLinkActive="active">
-		<a href="#">Phones</a>
-	</span>
-	<span routerLinkActive="active">
-		<a href="#">Tablets</a>
-	</span>
-	<span routerLinkActive="active">
-		<a href="#">Laptops</a>
-	</span>
+	<button mat-stroked-button (click)="setType('phone')">Phones</button>
+	<button mat-stroked-button (click)="setType('tablet')">Tablets</button>
+	<button mat-stroked-button (click)="setType('laptop')">Laptops</button>
 	<span routerLinkActive="active">
 		<a [routerLink]="['/cart']">Cart</a>
 	</span>

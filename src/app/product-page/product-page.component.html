@@ -8,7 +8,7 @@
 			<quill-view-html [content]="product.photo"></quill-view-html>
 			<h2>{{product.title}}</h2>
 			<h3>Price: {{product.price}}</h3>
-			<button mat-raised-button color="primary">Add to cart</button>
+			<button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button>
 		</div>
 		<div class="column">
 			<quill-view-html [content]="product.info"></quill-view-html>

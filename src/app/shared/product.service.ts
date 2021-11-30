@@ -8,7 +8,8 @@ import { FBResponse, IProduct } from './interfaces';
   providedIn: 'root'
 })
 export class ProductService {
-
+  type = 'phone'
+  cart: IProduct[] = []
   constructor(private http: HttpClient) { }
   createItem(product) {
     return this.http.post<FBResponse>(`${environment.DBUrl}products.json`, product)
@@ -43,5 +44,11 @@ export class ProductService {
   }
   editItem(product: IProduct): Observable<IProduct> {
     return this.http.patch<IProduct>(`${environment.DBUrl}products/${product.id}.json`, product)
+  }
+  setType(type) {
+    this.type = type
+  }
+  addToCart(product) {
+    this.cart.push(product)
   }
 }

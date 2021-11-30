@@ -15,6 +15,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { QuillModule } from 'ngx-quill';
+import { SortingPipe } from './shared/sorting.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { QuillModule } from 'ngx-quill';
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductComponent
+    ProductComponent,
+    SortingPipe
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,10 @@ import { QuillModule } from 'ngx-quill';
     MatButtonModule,
     QuillModule,
     MatDividerModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, multi: true, useClass: AuthInterceptor }],
   bootstrap: [AppComponent]

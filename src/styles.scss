@@ -32,3 +32,15 @@ mat-toolbar {
 .full-width {
 	width: 100%;
 }
+table {
+	min-width: 80%;
+	margin: 0 auto;
+	th,
+	td {
+		padding: 1rem;
+		text-align: center;
+	}
+	button {
+		margin: 0 10px;
+	}
+}

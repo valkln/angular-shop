@@ -7,6 +7,6 @@
 	<mat-divider inset></mat-divider>
 	<mat-card-actions>
 		<button mat-raised-button color="primary" [routerLink]="['/product', product.id]">Open</button>
-		<button mat-raised-button color="accent" [routerLink]="['/cart']">Add to cart</button>
+		<button mat-raised-button color="accent" (click)="addToCart(product)">Add to cart</button>
 	</mat-card-actions>
 </mat-card>

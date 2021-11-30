@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OrderService } from './../../shared/order.service';
 
 @Component({
   selector: 'app-orders-page',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-page.component.scss']
 })
 export class OrdersPageComponent implements OnInit {
+  orders = []
+  oSub: Subscription
+  constructor(
+    private orderService: OrderService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.oSub = this.orderService.getOrders().subscribe(orders => {
+      this.orders = orders
+    })
+  }
+  ngOnDestroy() {
+    if (this.oSub) {
+      this.oSub.unsubscribe()
+    }
   }
 
 }

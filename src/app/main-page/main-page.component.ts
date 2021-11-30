@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class MainPageComponent implements OnInit {
   products$: Observable<IProduct[]>
   constructor(
-    private productService: ProductService
+    public productService: ProductService
   ) { }
 
   ngOnInit() {

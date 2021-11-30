@@ -1,1 +1,57 @@
-<p>cart-page works!</p>
+<div *ngIf="cart.length > 0; else empty">
+	<h2>Your Order:</h2>
+	<table>
+		<tbody>
+			<tr *ngFor="let product of cart; let index = index">
+				<td>{{product.type}}</td>
+				<td>{{product.title}}</td>
+				<td>{{product.price}}</td>
+				<td><button mat-raised-button color="warn" (click)="delete(product)">Delete item</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<b>total price: {{totalPrice}} USD</b>
+	<h3>Delivery</h3>
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<div>
+			<mat-form-field class="full-width" appearance="fill">
+				<mat-label>Name</mat-label>
+				<input formControlName="name" matInput>
+				<mat-error *ngIf="form.get('name').touched && form.get('name').invalid ">
+					<span *ngIf="form.get('name').errors['required']">This field is required</span>
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field class="full-width" appearance="fill">
+				<mat-label>Phone Number</mat-label>
+				<input formControlName="phone" matInput>
+				<mat-error *ngIf="form.get('phone').touched && form.get('phone').invalid ">
+					<span *ngIf="form.get('phone').errors['required']">This field is required</span>
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field class="full-width" appearance="fill">
+				<mat-label>Address</mat-label>
+				<input formControlName="address" matInput>
+				<mat-error *ngIf="form.get('address').touched && form.get('address').invalid ">
+					<span *ngIf="form.get('address').errors['required']">This field is required</span>
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field class="full-width" appearance="fill">
+				<mat-label>Payment</mat-label>
+				<mat-select formControlName='payment'>
+					<mat-option value="card">Card</mat-option>
+					<mat-option value="cash">Cash</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<button mat-raised-button type="submit" color="primary" [disabled]="form.invalid || isSubmitting">Order</button>
+	</form>
+</div>
+<ng-template #empty>
+	<h2>Your cart is empty</h2>
+</ng-template>

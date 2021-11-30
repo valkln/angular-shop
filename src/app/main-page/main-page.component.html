@@ -1,4 +1,4 @@
 <div class='list' *ngIf="products$ | async as products">
-	<app-product class='item' *ngFor="let product of products" [product]="product">
+	<app-product class='item' *ngFor="let product of products | sorting: productService.type" [product]="product">
 	</app-product>
 </div>

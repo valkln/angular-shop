@@ -1,1 +1,32 @@
-<p>orders-page works!</p>
+<div *ngIf="orders.length">
+	<mat-card>
+		<h2>Orders</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Address</th>
+					<th>Products</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let order of orders">
+					<td>{{order.date | date:'HH:mm dd.MM.YYY'}}</td>
+					<td>{{order.name}}</td>
+					<td>{{order.phone}}</td>
+					<td>{{order.address}}</td>
+					<td>
+						<div *ngFor="let product of order.products">{{product.title}}</div>
+					</td>
+					<td>
+						<div>{{order.price}} $</div>
+						<div>{{order.payment}}</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</mat-card>
+</div>
