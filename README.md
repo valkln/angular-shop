@@ -1,27 +1,40 @@
 # AngularShop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+This is my training project form Vladilen Minin's Angular course
 
-## Development server
+## Project Features
+Backend is provided by Google Firebase
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### In main layout:
+Homepage shows all products of type 'phone' listed in store.
+App has 3 buttons to switch between types: phones, tablets and laptops.
+And it has cart page, where customer can make an order
 
-## Code scaffolding
+Data is dynamically loaded from Firebase
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### In Admin layout
+Which can be accessed at angular-shop-e16f1.web.app/admin
 
-## Build
+#### Login page
+Admin authentication (you can use admin@admin.com / angular for access)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Dashboard page
 
-## Running unit tests
+Homepage for admin layout, accessed via navbar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+List of all products
 
-## Running end-to-end tests
+Edit and delete buttons for each product
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Creation page
 
-## Further help
+Accessed via navbar
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Product creation page, where you can type product, and 2 quill-forms  for product photo and info
+
+#### Dashboard page
+
+Page with table of created orders
+#### Logout
+
+Accessed via navbar, deletes session and redirects to login page
