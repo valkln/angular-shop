@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs';
 import { ProductService } from './../../shared/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IProduct } from 'src/app/shared/interfaces';
+import { AlertService } from './../../shared/alert.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -17,7 +18,8 @@ export class EditPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -49,6 +51,7 @@ export class EditPageComponent implements OnInit {
     }).subscribe(() => {
       this.form.reset()
       this.isSubmitting = false
+      this.alert.success('Item edited')
       this.router.navigate(['/admin', 'dashboard'])
     })
   }

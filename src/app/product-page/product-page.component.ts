@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap, Observable } from 'rxjs';
 import { IProduct } from '../shared/interfaces';
 import { ProductService } from './../shared/product.service';
+import { AlertService } from './../shared/alert.service';
 
 @Component({
   selector: 'app-product-page',
@@ -13,7 +14,8 @@ export class ProductPageComponent implements OnInit {
   product$: Observable<IProduct>
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -24,5 +26,6 @@ export class ProductPageComponent implements OnInit {
   }
   addToCart(product) {
     this.productService.addToCart(product)
+    this.alert.success('Item added to cart')
   }
 }

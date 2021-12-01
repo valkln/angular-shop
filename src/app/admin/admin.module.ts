@@ -16,9 +16,11 @@ import { AuthGuard } from '../shared/auth.guard';
 import { QuillModule } from 'ngx-quill';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { AlertModule } from '../shared/alert/alert.module';
 
 @NgModule({
 	imports: [
+		AlertModule,
 		QuillModule.forRoot(),
 		MatInputModule,
 		MatTableModule,
@@ -49,7 +51,7 @@ import { MatTableModule } from '@angular/material/table';
 		DashboardPageComponent,
 		AddPageComponent,
 		OrdersPageComponent,
-		EditPageComponent,
+		EditPageComponent
 	]
 })
 export class AdminModule { }

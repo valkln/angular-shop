@@ -3,6 +3,7 @@ import { ProductService } from './../shared/product.service';
 import { IProduct } from 'src/app/shared/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OrderService } from './../shared/order.service';
+import { AlertService } from './../shared/alert.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -16,7 +17,8 @@ export class CartPageComponent implements OnInit {
   totalPrice = 0
   constructor(
     private productService: ProductService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private alert: AlertService
   ) { }
   ngOnInit() {
     this.form = new FormGroup({
@@ -44,11 +46,13 @@ export class CartPageComponent implements OnInit {
     }
     this.orderService.createOrder(order).subscribe(() => {
       this.form.reset()
+      this.alert.success('Your order is created')
       this.isSubmitting = false
     })
   }
   delete(product) {
     this.totalPrice -= +product.ProductService
     this.cart.splice(this.cart.indexOf(product), 1)
+    this.alert.warn('Item deleted from cart')
   }
 }

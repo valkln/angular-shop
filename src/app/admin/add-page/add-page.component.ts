@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from './../../shared/product.service';
+import { AlertService } from './../../shared/alert.service';
 
 @Component({
   selector: 'app-add-page',
@@ -13,7 +14,8 @@ export class AddPageComponent implements OnInit {
   isSubmitting = false
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) { }
   ngOnInit() {
     this.form = new FormGroup({
@@ -30,6 +32,7 @@ export class AddPageComponent implements OnInit {
     this.productService.createItem(this.form.value).subscribe(() => {
       this.form.reset()
       this.isSubmitting = false
+      this.alert.success('Item added')
       this.router.navigate(['/admin', 'dashboard'])
     })
   }

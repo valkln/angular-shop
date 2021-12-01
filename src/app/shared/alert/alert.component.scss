@@ -1,0 +1,15 @@
+.alert-wrap {
+	position: fixed;
+	top: 50px;
+	right: 40px;
+	max-width: 200px;
+}
+.alert-success {
+	background-color: rgb(57, 187, 64);
+}
+.alert-warn {
+	background-color: rgb(204, 168, 51);
+}
+.alert-danger {
+	background-color: rgb(187, 57, 57);
+}

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/shared/interfaces';
 import { ProductService } from './../../shared/product.service';
+import { AlertService } from './../../shared/alert.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -13,7 +14,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   pSub: Subscription
   dSub: Subscription
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   }
   delete(id: string) {
     this.dSub = this.productService.deleteItem(id).subscribe(() => {
+      this.alert.warn('Item deleted')
       this.products = this.products.filter(product => product.id !== id)
     })
   }
